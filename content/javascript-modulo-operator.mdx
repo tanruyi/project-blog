@@ -28,9 +28,7 @@ Division can often feel pretty abstract or theoretical, but there's a practical 
 
 **Drag the slider to see how this operation can be visualized:**
 
-**TODO: Uncomment DivisionGroupsDemo**
-
-{/* <DivisionGroupsDemo /> */}
+<DivisionGroupsDemo />
 
 `12 ÷ 4` evaluates to `3`, because each group holds exactly 3 items. Essentially, we're figuring out how many items will be held inside each group.
 
@@ -103,9 +101,9 @@ Let's look at how the modulo operator can help us solve this problem:
 const COLORS = ['red', 'yellow', 'blue'];
 
 function getColor({ timeElapsed }) {
-  const colorIndex = timeElapsed % COLORS.length;
+	const colorIndex = timeElapsed % COLORS.length;
 
-  return COLORS[colorIndex];
+	return COLORS[colorIndex];
 }
 ```
 

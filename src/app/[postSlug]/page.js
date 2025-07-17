@@ -1,11 +1,13 @@
 import React from 'react';
-
+import dynamic from 'next/dynamic';
 import BlogHero from '@/components/BlogHero';
 
 import styles from './postSlug.module.css';
 import { getBlogPost } from '@/helpers/file-helpers';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import CodeSnippet from '@/components/CodeSnippet';
+
+const LazyDivisionGroupsDemo = dynamic(() => import('@/components/DivisionGroupsDemo'));
 
 export async function generateMetadata({ params }) {
 	var { frontmatter } = await getBlogPost(params.postSlug);
@@ -23,7 +25,7 @@ async function BlogPost({ params }) {
 		<article className={styles.wrapper}>
 			<BlogHero title={frontmatter.title} publishedOn={frontmatter.publishedOn} />
 			<div className={styles.page}>
-				<MDXRemote source={content} components={{ pre: CodeSnippet }} />
+				<MDXRemote source={content} components={{ pre: CodeSnippet, DivisionGroupsDemo: LazyDivisionGroupsDemo }} />
 			</div>
 		</article>
 	);
