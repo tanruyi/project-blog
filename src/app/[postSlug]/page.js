@@ -6,6 +6,7 @@ import styles from './postSlug.module.css';
 import { getBlogPost } from '@/helpers/file-helpers';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import CodeSnippet from '@/components/CodeSnippet';
+import CircularColorsDemo from '@/components/CircularColorsDemo';
 
 const LazyDivisionGroupsDemo = dynamic(() => import('@/components/DivisionGroupsDemo'));
 
@@ -25,7 +26,10 @@ async function BlogPost({ params }) {
 		<article className={styles.wrapper}>
 			<BlogHero title={frontmatter.title} publishedOn={frontmatter.publishedOn} />
 			<div className={styles.page}>
-				<MDXRemote source={content} components={{ pre: CodeSnippet, DivisionGroupsDemo: LazyDivisionGroupsDemo }} />
+				<MDXRemote
+					source={content}
+					components={{ pre: CodeSnippet, DivisionGroupsDemo: LazyDivisionGroupsDemo, CircularColorsDemo: CircularColorsDemo }}
+				/>
 			</div>
 		</article>
 	);
