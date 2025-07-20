@@ -7,7 +7,7 @@ import Logo from '@/components/Logo';
 import VisuallyHidden from '@/components/VisuallyHidden';
 
 import styles from './Header.module.css';
-import { DARK_TOKENS, LIGHT_TOKENS } from '@/constants';
+import { DARK_TOKENS, LIGHT_TOKENS, THEME_COOKIE_NAME } from '@/constants';
 import Cookies from 'js-cookie';
 
 function Header({ initialTheme, className, ...delegated }) {
@@ -28,7 +28,7 @@ function Header({ initialTheme, className, ...delegated }) {
 			root.style.setProperty(key, value);
 		});
 
-		Cookies.set('color-theme', nextTheme, { expires: 1000 });
+		Cookies.set(THEME_COOKIE_NAME, nextTheme, { expires: 1000 });
 	}
 
 	return (
